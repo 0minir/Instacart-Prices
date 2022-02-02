@@ -1,0 +1,21 @@
+{
+	"name": "Instacart $/oz",
+	"description": "Shows Instacart Prices in $ per oz format",
+	"version": "1.0",
+	"icons": {
+		"16": "images/icon16.png",
+		"48": "images/icon48.png",
+		"128": "images/icon128.png"
+	},
+	"manifest_version": 3,
+	"content_scripts": [ {
+		"js": [ "prices.js" ],
+		"run_at": "document_idle",
+		"matches": [ "https://*.instacart.wegmans.com/*", "https://*.instacart.com/*"]
+	} ],
+	"background": {
+		"service_worker": "background.js"
+	},
+	"permissions": [ "activeTab" ],
+	"host_permissions": [ "https://*.instacart.wegmans.com/*", "https://*.instacart.com/*" ]
+}
